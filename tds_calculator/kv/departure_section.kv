@@ -1,0 +1,128 @@
+#:kivy 1.11.1
+#:include templates_rules.kv
+
+<DepartureSection>:
+    dep_day: dep_day
+    dep_mon: dep_mon
+    dep_year: dep_year
+    dep_hour: dep_hour
+    dep_min: dep_min
+    dep_tzsign: dep_tzsign
+    dep_tzhour: dep_tzhour
+    dep_tzmin: dep_tzmin
+    departure_checkbox: departure_checkbox
+    departure_dict:{'year':dep_year.text, 'mon':dep_mon.text, 'day': dep_day.text, 'hour': dep_hour.text, 'min': dep_min.text, 'tzsign': dep_tzsign.text, 'tzhour': dep_tzhour.text, 'tzmin': dep_tzmin.text}
+    
+    orientation: 'vertical'
+    spacing: designer_spacing
+    size_hint_y: None
+    height: '150dp'
+    canvas.before:
+        Color:
+            hsv: 0, 0, .5
+            a: 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+        Color:
+            hsv: 0, 0, 0
+            a: 1
+        Line:
+            width: 1
+            rectangle: self.x, self.y, self.width, self.height
+    BoxLayout:                        # DEPARTURE LABEL
+        size_hint_y: None
+        height: designer_height
+        padding: designer_padding
+        spacing: designer_spacing
+        DesignerCheckBox:
+            id: departure_checkbox
+        DesignerLabel:
+            text: 'DEPARTURE:'
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: designer_spacing
+        padding: designer_padding
+        BoxLayout:
+            size_hint_y: None
+            height: designer_height
+            DesignerLabel:
+                text: 'DATE:'
+        BoxLayout:                            # DEPARTURE DATE INPUT
+            size_hint_y: None
+            height: designer_height
+            DesignerTextInput:
+                id: dep_day
+                hint_text: 'DD'
+                input_filter: 'int'
+                text: 
+            DesignerLabelTitle:
+                size_hint_x: .1
+                text: '-'
+            DesignerTextInput:
+                id: dep_mon
+                hint_text: 'MM'
+                input_filter: 'int'
+                text: 
+            DesignerLabelTitle:
+                size_hint_x: .1
+                text: '-'
+            DesignerTextInput:
+                id: dep_year
+                hint_text: 'YYYY'
+                input_filter: 'int'
+                text: 
+    BoxLayout:                                # DEPARTURE TIME INPUT
+        spacing: designer_spacing
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: designer_spacing
+            padding: designer_padding
+            BoxLayout:
+                size_hint_y: None
+                height: designer_height
+                DesignerLabel:
+                    text: 'TIME:'
+            BoxLayout:
+                size_hint_y: None
+                height: designer_height
+                DesignerTextInput:
+                    id: dep_hour
+                    hint_text: 'HH'
+                    input_filter: 'int'
+                    text: 
+                DesignerLabelTitle:
+                    size_hint_x: .2
+                    text: ':'
+                DesignerTextInput:
+                    id: dep_min
+                    hint_text: 'MM'
+                    input_filter: 'int'
+                    text: 
+        BoxLayout:                         # DEPARTURE TIME ZONE INPUT
+            orientation: 'vertical'
+            spacing: designer_spacing
+            padding: designer_padding
+            BoxLayout:
+                size_hint_y: None
+                height: designer_height
+                DesignerLabel:
+                    text: 'TIME ZONE:'
+            BoxLayout:
+                size_hint_y: None
+                height: designer_height
+                DesignerSpinner:
+                    id: dep_tzsign
+                DesignerTextInput:
+                    id: dep_tzhour
+                    hint_text: 'HH'
+                    input_filter: 'int'
+                    text: 
+                DesignerLabelTitle:
+                    size_hint_x: .15
+                    text: ':'
+                DesignerTextInput:
+                    id: dep_tzmin
+                    hint_text: 'MM'
+                    input_filter: 'int'
+                    text: 

@@ -1,0 +1,29 @@
+#:kivy 1.11.1
+#:include templates_rules.kv
+
+<SpeedSection>:
+    spd: spd
+    speed_checkbox: speed_checkbox
+    
+    orientation: 'vertical'
+    spacing: designer_spacing
+    padding: designer_padding
+    BoxLayout:                          # SPEED LABEL
+        size_hint_y: None
+        height: designer_height
+        spacing: designer_spacing
+        DesignerCheckBox:
+            id: speed_checkbox
+        DesignerLabel:
+            text: 'SPEED:'
+    BoxLayout:                          # SPEED TEXT INPUT
+        size_hint_y: None
+        height: designer_height
+        spacing: designer_spacing
+        DesignerTextInput:
+            id: spd
+            hint_text: '0.00'
+            input_filter: 'float'
+            text:
+        DesignerLabel:
+            text:'KN'

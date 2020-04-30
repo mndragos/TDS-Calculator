@@ -1,0 +1,69 @@
+#:kivy 1.11.1
+#:set designer_height               '25dp'
+#:set designer_double_height        '50dp'
+#:set designer_height_small          '5dp'
+#:set designer_spacing              '5dp'
+#:set designer_button_spacing       '30dp'
+#:set designer_padding              '4dp'
+#:set designer_button_padding       '8dp'
+#:set designer_font_size             '18sp'
+
+<DesignerButton@Button>:
+    font_size: designer_font_size
+    background_normal: '' # disables button grey collor
+    color: 0, 0, 0, 1
+    canvas.before:
+        Color:
+            hsv: 0, 0, 0
+            a: 1
+        Line:
+            width: 2
+            rectangle: self.x, self.y, self.width, self.height
+
+<DesignerLabelTitle@Label>:
+    text_size: self.size
+    halign: 'center'
+    valign: 'middle'
+    font_size: designer_font_size
+    color: [0, 0, 0, 1]
+    markup: True
+    bold: True
+
+<DesignerLabel@Label>:
+    text_size: self.size
+    halign: 'left'
+    valign: 'middle'
+    font_size: designer_font_size
+    color: [0, 0, 0, 1]
+    markup: True
+    bold: True
+
+<DesignerTextInput@TextInput>:
+    font_size: designer_font_size
+    multiline: False
+    halign: 'center'
+    padding_y: [0, '0.05dp']
+
+<DesignerCheckBox@CheckBox>:
+    group: 'selector'
+    size_hint_x: .1
+    color: 0,0,0,1
+
+<DesignerSpinner@Spinner>:
+    size_hint_x: .3
+    sync_height: True
+    values: '+', '-', '+/-'
+    color: 0, 0, 0, 1
+    text: '+/-'
+    on_text:
+        if self.text==self.values[2]:self.background_color=(1,1,1,1)
+        elif self.text==self.values[0]:self.background_color = (0,1,0,.5)
+        elif self.text==self.values[1]:self.background_color=(1,0,0,.5)
+    background_normal: ''
+    background_color: 1, 1, 1, 1
+    canvas.before:
+        Color:
+            rgb: self.background_color
+        Line:
+            width: 1
+            rectangle: self.x, self.y, self.width, self.height

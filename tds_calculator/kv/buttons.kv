@@ -1,0 +1,19 @@
+#:kivy 1.11.1
+#:include templates_rules.kv
+
+<Buttons>:
+    size_hint_y: None
+    height: designer_double_height
+    spacing: designer_button_spacing
+    padding: designer_button_padding
+
+    DesignerButton:
+        id: calculate
+        background_color: 0, .5, 0, 1 # sets GREEN collor
+        text: 'CALCULATE'
+        on_press: root.calculate()
+    DesignerButton:
+        id: reset
+        background_color: .5, 0, 0, 1 # sets RED collor
+        text: 'RESET'
+        on_press: on_press: root.reset()

@@ -1,0 +1,29 @@
+#:kivy 1.11.1
+#:include templates_rules.kv
+
+<DistanceSection>:
+    dist: dist
+    distance_checkbox: distance_checkbox
+    
+    orientation: 'vertical'
+    spacing: designer_spacing
+    padding: designer_padding
+    BoxLayout:                          # DISTANCE LABEL
+        size_hint_y: None
+        height: designer_height
+        spacing: designer_spacing
+        DesignerCheckBox:
+            id: distance_checkbox
+        DesignerLabel:
+            text: 'DISTANCE:'
+    BoxLayout:                          # DISTANCE TEXT INPUT
+        size_hint_y: None
+        height: designer_height
+        spacing: designer_spacing
+        DesignerTextInput:
+            id: dist
+            hint_text: '0.00'
+            input_filter: 'float'
+            text:
+        DesignerLabel:
+            text:'NM'

@@ -1,0 +1,158 @@
+#:kivy 1.11.1
+##:include title.kv
+#:include departure_section.kv
+#:include arrival_section.kv
+#:include distance_section.kv
+#:include speed_section.kv
+#:include buttons.kv
+#:include force templates_rules.kv
+
+# <PopMessage>:
+#     popmsg:popmsg
+#     title_align: "center"
+#     title_size: "18sp"
+#     title_color:(0, 0, 0, 1)
+#     title: "Error Warning"
+
+#    background: "eta_calculator\\img\\grey.png" 
+
+#     BoxLayout:
+#         orientation: "vertical"
+
+#         Label:
+#             id:popmsg
+#             font_size: "18sp"
+#             halign: "center"
+#             valign: "middle"
+#             color: (0, 0, 0, 1)
+#             text: "TEXT TEXT TEXT"
+
+<TDSCalculator>:
+    time_delta_label: time_delta_label
+    softinput_mode: 'pan'
+    orientation: 'vertical'
+    padding: ['20dp','20dp','20dp','10dp']
+    spacing: '10dp'
+    canvas.before:
+        Color:
+            hsv: .6, 1, 1
+            a: .8
+        Rectangle:
+            size: self.size
+            pos: self.pos
+        Color:
+            hsv: 0, 0, 0
+            a: 1
+        Line:
+            width: 1
+            rectangle: self.x, self.y, self.width, self.height
+    BoxLayout:                        # TITLE SECTION.
+        size_hint_y: None
+        height: designer_height
+        padding: designer_padding
+        canvas.before:
+            Color:
+                hsv: 0, 0, .5
+                a: 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+            Color:
+                hsv: 0, 0, 0
+                a: 1
+            Line:
+                width: 1
+                rectangle: self.x, self.y, self.width, self.height
+        DesignerLabelTitle:           # TITLE
+            text: 'TIME DISTANCE SPEED CALCULATOR'
+    DepartureSection:                 # DEPARTURE SECTION.
+        id: dep_section
+    ArrivalSection:                   # ARRIVAL SECTION.
+        id: arr_section
+    BoxLayout:                        # TIME, DISTANCE, SPEED SECTION - SECTIONS.
+        spacing: designer_spacing
+        size_hint_y: None
+        height: '60dp'
+        canvas.before:
+            Color:
+                hsv: 0, 0, .5
+                a: 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+            Color:
+                hsv: 0, 0, 0
+                a: 1
+            Line:
+                width: 1
+                rectangle: self.x, self.y, self.width, self.height
+        DistanceSection:              # DISTANCE SECTION
+            id: distance 
+        SpeedSection:                 # SPEED SECTION
+            id: speed
+    BoxLayout:
+        spacing: designer_spacing
+        size_hint_y: None
+        height: '60dp'
+        canvas.before:
+            Color:
+                hsv: 0, 0, .5
+                a: 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+            Color:
+                hsv: 0, 0, 0
+                a: 1
+            Line:
+                width: 1
+                rectangle: self.x, self.y, self.width, self.height
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: designer_spacing
+            padding: designer_padding
+            DesignerLabel:
+                text: 'TIME DELTA:'
+            DesignerLabelTitle:
+                id: time_delta_label
+                text:
+                size_hint_x: .4
+                canvas.before:
+                    Color:
+                        hsv: 0, 0, .7
+                        a: 1
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                    Color:
+                        hsv: 0, 0, 0
+                        a: 1
+                    Line:
+                        width: 1
+                        rectangle: self.x, self.y, self.width, self.height
+    BoxLayout:                         # BUTTONS CALCULATE, RESET - SECTION
+        size_hint_y: None
+        height: designer_double_height
+        canvas.before:
+            Color:
+                hsv: 0, 0, .5
+                a: 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+            Color:
+                hsv: 0, 0, 0
+                a: 1
+            Line:
+                width: 1
+                rectangle: self.x, self.y, self.width, self.height
+        Buttons:
+            id: buttons
+            dep_section : dep_section
+            arr_section: arr_section
+            distance: distance
+            speed: speed
+            time_delta_label : time_delta_label
+    BoxLayout:                          # EMPTY BOX.
+
+<InvalidValue>:

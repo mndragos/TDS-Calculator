@@ -1,0 +1,130 @@
+#:kivy 1.11.1
+#:include templates_rules.kv
+
+<ArrivalSection>: 
+    arr_year: arr_year
+    arr_mon: arr_mon
+    arr_day: arr_day
+    arr_hour: arr_hour
+    arr_min: arr_min
+    arr_tzsign: arr_tzsign
+    arr_tzhour: arr_tzhour
+    arr_tzmin: arr_tzmin
+    arrival_checkbox:arrival_checkbox
+    arrival_dict:{'year':arr_year.text, 'mon':arr_mon.text, 'day': arr_day.text, 'hour': arr_hour.text, 'min': arr_min.text, 'tzsign': arr_tzsign.text, 'tzhour': arr_tzhour.text, 'tzmin': arr_tzmin.text}
+    
+    orientation: 'vertical'
+    spacing: designer_spacing
+    size_hint_y: None
+    height: '150dp'
+    canvas.before:
+        Color:
+            hsv: 0, 0, .5
+            a: 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+        Color:
+            hsv: 0, 0, 0
+            a: 1
+        Line:
+            width: 1
+            rectangle: self.x, self.y, self.width, self.height
+    BoxLayout:                                 # ARRIVAL LABEL
+        size_hint_y: None
+        height: designer_height
+        padding: designer_padding
+        spacing: designer_spacing
+        DesignerCheckBox:
+            id: arrival_checkbox
+        DesignerLabel:
+            text: 'ARRIVAL:'
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: designer_spacing
+        padding: designer_padding
+        BoxLayout:
+            size_hint_y: None
+            height: designer_height
+            DesignerLabel:
+                text: 'DATE:'
+        BoxLayout:                           # ARRIVAL DATE INPUT
+            size_hint_y: None
+            height: designer_height
+            DesignerTextInput:
+                id: arr_day
+                hint_text: 'DD'
+                input_filter: 'int'
+                text:
+            DesignerLabelTitle:
+                size_hint_x: .1
+                text: '-'
+            DesignerTextInput:
+                id: arr_mon
+                hint_text: 'MM'
+                input_filter: 'int'
+                text:
+
+            DesignerLabelTitle:
+                size_hint_x: .1
+                text: '-'
+            DesignerTextInput:
+                id: arr_year
+                hint_text: 'YYYY'
+                input_filter: 'int'
+                text:
+    BoxLayout:                                   # ARRIVAL TIME INPUT
+        spacing: designer_spacing
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: designer_spacing
+            padding: designer_padding
+            BoxLayout:
+                size_hint_y: None
+                height: designer_height
+                DesignerLabel:
+                    text: 'TIME:'
+            BoxLayout:
+                size_hint_y: None
+                height: designer_height
+                DesignerTextInput:
+                    id: arr_hour
+                    hint_text: 'HH'
+                    input_filter: 'int'
+                    text:
+
+                DesignerLabelTitle:
+                    size_hint_x: .2
+                    text: ':'
+                DesignerTextInput:
+                    id: arr_min
+                    hint_text: 'MM'
+                    input_filter: 'int'
+                    text:
+        BoxLayout:                                  # ARRIVAL TIME ZONE INPUT
+            orientation: 'vertical'
+            spacing: designer_spacing
+            padding: designer_padding
+            BoxLayout:
+                size_hint_y: None
+                height: designer_height
+                DesignerLabel:
+                    text: 'TIME ZONE:'
+            BoxLayout:
+                size_hint_y: None
+                height: designer_height
+                DesignerSpinner:
+                    id: arr_tzsign
+                DesignerTextInput:
+                    id: arr_tzhour
+                    hint_text: 'HH'
+                    input_filter: 'int'
+                    text:
+                DesignerLabelTitle:
+                    size_hint_x: .15
+                    text: ':'
+                DesignerTextInput:
+                    id: arr_tzmin
+                    hint_text: 'MM'
+                    input_filter: 'int'
+                    text:
