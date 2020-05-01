@@ -2,16 +2,16 @@
 #:include templates_rules.kv
 
 <DepartureSection>:
-    dep_day: dep_day
-    dep_mon: dep_mon
-    dep_year: dep_year
-    dep_hour: dep_hour
-    dep_min: dep_min
-    dep_tzsign: dep_tzsign
-    dep_tzhour: dep_tzhour
-    dep_tzmin: dep_tzmin
+    day: day
+    mon: mon
+    year: year
+    hour: hour
+    mins: mins
+    tzsign: tzsign
+    tzhour: tzhour
+    tzmin: tzmin
     departure_checkbox: departure_checkbox
-    departure_dict:{'year':dep_year.text, 'mon':dep_mon.text, 'day': dep_day.text, 'hour': dep_hour.text, 'min': dep_min.text, 'tzsign': dep_tzsign.text, 'tzhour': dep_tzhour.text, 'tzmin': dep_tzmin.text}
+    departure_dict:{'year':year.text, 'mon':mon.text, 'day': day.text, 'hour': hour.text, 'min': mins.text, 'tzsign': tzsign.text, 'tzhour': tzhour.text, 'tzmin': tzmin.text}
     
     orientation: 'vertical'
     spacing: designer_spacing
@@ -52,7 +52,7 @@
             size_hint_y: None
             height: designer_height
             DesignerTextInput:
-                id: dep_day
+                id: day
                 hint_text: 'DD'
                 input_filter: 'int'
                 text: 
@@ -60,7 +60,7 @@
                 size_hint_x: .1
                 text: '-'
             DesignerTextInput:
-                id: dep_mon
+                id: mon
                 hint_text: 'MM'
                 input_filter: 'int'
                 text: 
@@ -68,7 +68,7 @@
                 size_hint_x: .1
                 text: '-'
             DesignerTextInput:
-                id: dep_year
+                id: year
                 hint_text: 'YYYY'
                 input_filter: 'int'
                 text: 
@@ -87,7 +87,7 @@
                 size_hint_y: None
                 height: designer_height
                 DesignerTextInput:
-                    id: dep_hour
+                    id: hour
                     hint_text: 'HH'
                     input_filter: 'int'
                     text: 
@@ -95,7 +95,7 @@
                     size_hint_x: .2
                     text: ':'
                 DesignerTextInput:
-                    id: dep_min
+                    id: mins
                     hint_text: 'MM'
                     input_filter: 'int'
                     text: 
@@ -112,9 +112,9 @@
                 size_hint_y: None
                 height: designer_height
                 DesignerSpinner:
-                    id: dep_tzsign
+                    id: tzsign
                 DesignerTextInput:
-                    id: dep_tzhour
+                    id: tzhour
                     hint_text: 'HH'
                     input_filter: 'int'
                     text: 
@@ -122,7 +122,7 @@
                     size_hint_x: .15
                     text: ':'
                 DesignerTextInput:
-                    id: dep_tzmin
+                    id: tzmin
                     hint_text: 'MM'
                     input_filter: 'int'
                     text: 

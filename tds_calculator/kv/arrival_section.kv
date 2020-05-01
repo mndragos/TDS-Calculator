@@ -2,17 +2,16 @@
 #:include templates_rules.kv
 
 <ArrivalSection>: 
-    arr_year: arr_year
-    arr_mon: arr_mon
-    arr_day: arr_day
-    arr_hour: arr_hour
-    arr_min: arr_min
-    arr_tzsign: arr_tzsign
-    arr_tzhour: arr_tzhour
-    arr_tzmin: arr_tzmin
+    year: year
+    mon: mon
+    day: day
+    hour: hour
+    mins: mins
+    tzsign: tzsign
+    tzhour: tzhour
+    tzmin: tzmin
     arrival_checkbox:arrival_checkbox
-    arrival_dict:{'year':arr_year.text, 'mon':arr_mon.text, 'day': arr_day.text, 'hour': arr_hour.text, 'min': arr_min.text, 'tzsign': arr_tzsign.text, 'tzhour': arr_tzhour.text, 'tzmin': arr_tzmin.text}
-    
+    arrival_dict:{'year':year.text, 'mon':mon.text, 'day': day.text, 'hour': hour.text, 'min': mins.text, 'tzsign': tzsign.text, 'tzhour': tzhour.text, 'tzmin': tzmin.text}
     orientation: 'vertical'
     spacing: designer_spacing
     size_hint_y: None
@@ -52,15 +51,15 @@
             size_hint_y: None
             height: designer_height
             DesignerTextInput:
-                id: arr_day
+                id: day
                 hint_text: 'DD'
                 input_filter: 'int'
-                text:
+                text: 
             DesignerLabelTitle:
                 size_hint_x: .1
                 text: '-'
             DesignerTextInput:
-                id: arr_mon
+                id: mon
                 hint_text: 'MM'
                 input_filter: 'int'
                 text:
@@ -69,7 +68,7 @@
                 size_hint_x: .1
                 text: '-'
             DesignerTextInput:
-                id: arr_year
+                id: year
                 hint_text: 'YYYY'
                 input_filter: 'int'
                 text:
@@ -88,7 +87,7 @@
                 size_hint_y: None
                 height: designer_height
                 DesignerTextInput:
-                    id: arr_hour
+                    id: hour
                     hint_text: 'HH'
                     input_filter: 'int'
                     text:
@@ -97,7 +96,7 @@
                     size_hint_x: .2
                     text: ':'
                 DesignerTextInput:
-                    id: arr_min
+                    id: mins
                     hint_text: 'MM'
                     input_filter: 'int'
                     text:
@@ -114,9 +113,9 @@
                 size_hint_y: None
                 height: designer_height
                 DesignerSpinner:
-                    id: arr_tzsign
+                    id: tzsign
                 DesignerTextInput:
-                    id: arr_tzhour
+                    id: tzhour
                     hint_text: 'HH'
                     input_filter: 'int'
                     text:
@@ -124,7 +123,7 @@
                     size_hint_x: .15
                     text: ':'
                 DesignerTextInput:
-                    id: arr_tzmin
+                    id: tzmin
                     hint_text: 'MM'
                     input_filter: 'int'
                     text:

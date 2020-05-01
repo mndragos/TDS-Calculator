@@ -75,21 +75,21 @@ class Buttons(BoxLayout):
         try:
             if departure_checkbox:
                 dep = self.calculate_departure_datetime()
-                self.dep_section.dep_day.text = str(dep[2])
-                self.dep_section.dep_mon.text = str(dep[1])
-                self.dep_section.dep_year.text = str(dep[0])
-                self.dep_section.dep_hour.text = str(dep[3])
-                self.dep_section.dep_min.text = str(dep[4])
+                self.dep_section.day.text = str(dep[2])
+                self.dep_section.mon.text = str(dep[1])
+                self.dep_section.year.text = str(dep[0])
+                self.dep_section.hour.text = str(dep[3])
+                self.dep_section.mins.text = str(dep[4])
                 self.time_delta_label.text = str(
                     timedelta(hours=self.calculate_time_delta())
                 )
             elif arrival_checkbox:
                 arr = self.calculate_arrival_datetime()
-                self.arr_section.arr_day.text = str(arr[2])
-                self.arr_section.arr_mon.text = str(arr[1])
-                self.arr_section.arr_year.text = str(arr[0])
-                self.arr_section.arr_hour.text = str(arr[3])
-                self.arr_section.arr_min.text = str(arr[4])
+                self.arr_section.day.text = str(arr[2])
+                self.arr_section.mon.text = str(arr[1])
+                self.arr_section.year.text = str(arr[0])
+                self.arr_section.hour.text = str(arr[3])
+                self.arr_section.mins.text = str(arr[4])
                 self.time_delta_label.text = str(
                     timedelta(hours=self.calculate_time_delta())
                 )
