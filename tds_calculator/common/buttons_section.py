@@ -111,4 +111,27 @@ class Buttons(BoxLayout):
             )
 
     def reset(self):
-        self.resetbtn.text = "The Hard Way!!"
+        prop_obj = [
+            self.dep_section.year,
+            self.dep_section.mon,
+            self.dep_section.day,
+            self.dep_section.hour,
+            self.dep_section.mins,
+            self.dep_section.tzsign,
+            self.dep_section.tzhour,
+            self.dep_section.tzmin,
+            self.arr_section.year,
+            self.arr_section.mon,
+            self.arr_section.day,
+            self.arr_section.hour,
+            self.arr_section.mins,
+            self.arr_section.tzsign,
+            self.arr_section.tzhour,
+            self.arr_section.tzmin,
+            self.distance.dist,
+            self.speed.spd,
+            self.time_delta_label,
+        ]
+
+        for items in prop_obj:
+            items.text = ""

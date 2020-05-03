@@ -7,13 +7,13 @@ from kivy.properties import ObjectProperty, DictProperty, ListProperty
 
 
 class ArrivalSection(BoxLayout):
-    arr_year = ObjectProperty()
-    arr_mon = ObjectProperty()
-    arr_day = ObjectProperty()
-    arr_hour = ObjectProperty()
-    arr_min = ObjectProperty()
-    arr_tzsign = ObjectProperty()
-    arr_tzhour = ObjectProperty()
-    arr_tzmin = ObjectProperty()
+    year = ObjectProperty()
+    mon = ObjectProperty()
+    day = ObjectProperty()
+    hour = ObjectProperty()
+    mins = ObjectProperty()
+    tzsign = ObjectProperty()
+    tzhour = ObjectProperty()
+    tzmin = ObjectProperty()
     arrival_checkbox = ObjectProperty()
     arrival_dict = DictProperty()

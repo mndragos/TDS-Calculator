@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 
 class TemplateDateString:
     def _date_dict(self, date_dict):
-        return "{year}-{mon}-{day} {hour}:{min} {tzsign}{tzhour}:{tzmin}".format(
+        return "{year}-{mon}-{day} {hour}:{mins} {tzsign}{tzhour}:{tzmin}".format(
             **date_dict
         )
 
@@ -17,3 +17,9 @@ class TemplateDateString:
     def string_datetime(self, date_dict):
         date_string = self._date_dict(date_dict)
         return datetime.strptime(date_string, "%Y-%m-%d %H:%M %z")
+
+    # def prop_obj(self, prop_obj, date_dict):
+    #     l = []
+    #     for key, val in date_dict.items():
+    #         l.append(f"self.{prop_obj}.{key}")
+    #     return l
