@@ -12,6 +12,8 @@ from tds_calculator.common.distance_section import DistanceSection
 from tds_calculator.common.speed_section import SpeedSection
 from tds_calculator.common.error_message import ErrorMessage
 from tds_calculator.common.template_date_string import TemplateDateString
+from tds_calculator.common.template_local_time import TemplateLocalTime
+from tds_calculator.common.template_dict_keys import TemplateDictKeys
 
 
 class Buttons(BoxLayout):
@@ -20,13 +22,14 @@ class Buttons(BoxLayout):
     distance_section = DistanceSection()
     speed_section = SpeedSection()
     missing_value = ErrorMessage()
-    template = TemplateDateString()
 
     def calculate_time_delta(self) -> float:
         departure_checkbox = self.dep_section.departure_checkbox.active
         arrival_checkbox = self.arr_section.arrival_checkbox.active
         distance_checkbox = self.distance.distance_checkbox.active
         speed_checkbox = self.speed.speed_checkbox.active
+        departure_dict = self.dep_section.departure_dict
+        arrival_dict = self.arr_section.arrival_dict
 
         if departure_checkbox or arrival_checkbox:
             speed = float(f"{self.speed.spd.text}")
@@ -34,8 +37,8 @@ class Buttons(BoxLayout):
             time_delta = round(distance / speed, 2)
 
         elif distance_checkbox or speed_checkbox:
-            departure = self.template.string_datetime(self.dep_section.departure_dict)
-            arrival = self.template.string_datetime(self.arr_section.arrival_dict)
+            departure = TemplateDateString(departure_dict).string_datetime
+            arrival = TemplateDateString(arrival_dict).string_datetime
             time_delta = round(((arrival - departure).total_seconds() / 3600), 2)
         return time_delta
 
@@ -52,16 +55,20 @@ class Buttons(BoxLayout):
         return speed
 
     def calculate_departure_datetime(self) -> datetime.timetuple:
-        arrival = self.template.string_datetime(self.arr_section.arrival_dict)
-        dtz = self.template.adjust_local_time(self.dep_section.departure_dict)
+        departure_dict = self.dep_section.departure_dict
+        arrival_dict = self.arr_section.arrival_dict
+        arrival = TemplateDateString(arrival_dict).string_datetime
+        dtz = TemplateLocalTime(departure_dict).adjust_local_time
         time_delta = timedelta(hours=self.calculate_time_delta())
         departure = arrival - time_delta
         departure = departure.astimezone(timezone(dtz))
         return departure.timetuple()
 
     def calculate_arrival_datetime(self) -> datetime.timetuple:
-        departure = self.template.string_datetime(self.dep_section.departure_dict)
-        atz = self.template.adjust_local_time(self.arr_section.arrival_dict)
+        departure_dict = self.dep_section.departure_dict
+        arrival_dict = self.arr_section.arrival_dict
+        departure = TemplateDateString(departure_dict).string_datetime
+        atz = TemplateLocalTime(arrival_dict).adjust_local_time
         time_delta = timedelta(hours=self.calculate_time_delta())
         arrival = departure + time_delta
         arrival = arrival.astimezone(timezone(atz))
