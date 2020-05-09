@@ -1,12 +1,20 @@
-# #:kivy 1.11.1
-# #:include templates_rules.kv
+#:kivy 1.11.1
 
-# <PopMessage>:
-#     id: mypopup
-#     message_text: message_text
-#     size_hint:(0.5, 0.5)
-#     title: "Vallue Error Warning"
-#     title_align: 'center'
-#     DesignerLabelTitle:
-#         id: message_text
-#         text:
+<PopMessage>:
+    pop_label: pop_label
+    size_hint:(0.7, 0.3)
+    title_align: "center"
+    title_size: "18sp"
+    title_color:(0, 0, 0, 1)
+    title: "Error Warning"
+    background:"tds_calculator\\img\\grey.png"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            id: pop_label
+            font_size: "18sp"
+            halign: "center"
+            valign: "middle"
+            color: (0, 0, 0, 1)
+            text:
+    

@@ -1,31 +1,12 @@
 #:kivy 1.11.1
-##:include title.kv
 #:include departure_section.kv
 #:include arrival_section.kv
 #:include distance_section.kv
 #:include speed_section.kv
 #:include buttons.kv
+#:include pop_message.kv
 #:include force templates_rules.kv
 
-# <PopMessage>:
-#     popmsg:popmsg
-#     title_align: "center"
-#     title_size: "18sp"
-#     title_color:(0, 0, 0, 1)
-#     title: "Error Warning"
-
-#    background: "eta_calculator\\img\\grey.png" 
-
-#     BoxLayout:
-#         orientation: "vertical"
-
-#         Label:
-#             id:popmsg
-#             font_size: "18sp"
-#             halign: "center"
-#             valign: "middle"
-#             color: (0, 0, 0, 1)
-#             text: "TEXT TEXT TEXT"
 
 <TDSCalculator>:
     time_delta_label: time_delta_label
