@@ -9,15 +9,14 @@ class SpeedSection(BoxLayout):
     spd = ObjectProperty()
     speed_checkbox = ObjectProperty()
 
-    def speed_string(self, speed: str) -> str:
-        """Uses a template to create the speed from the GUI text input interface.
+    def text_color(self):
+        if self.speed_checkbox.state == "down":
+            self.spd.background_color = (0, 0, 1, 0.5)
+        elif self.speed_checkbox.state == "normal":
+            self.spd.background_color = (1, 1, 1, 1)
 
-        Arguments:
-            spd {str} -- string in the format '0.00'.
-
-        Returns:
-            str -- '0.00'
-        """
-        # spd = self.spd.text
-
-        return "{}".format(speed)
+    def text_disable(self):
+        if self.speed_checkbox.state == "down":
+            self.spd.disabled = True
+        elif self.speed_checkbox.state == "normal":
+            self.spd.disabled = False

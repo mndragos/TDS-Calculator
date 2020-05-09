@@ -1,7 +1,7 @@
 #:kivy 1.11.1
 #:include templates_rules.kv
 
-<ArrivalSection>: 
+<ArrivalSection>:
     year: year
     mon: mon
     day: day
@@ -36,6 +36,7 @@
         spacing: designer_spacing
         DesignerCheckBox:
             id: arrival_checkbox
+            on_state: root.text_color(); root.text_disable()
         DesignerLabel:
             text: 'ARRIVAL:'
     BoxLayout:
@@ -63,7 +64,6 @@
                 hint_text: 'MM'
                 input_filter: 'int'
                 text:
-
             DesignerLabelTitle:
                 size_hint_x: .1
                 text: '-'

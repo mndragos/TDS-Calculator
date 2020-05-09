@@ -16,5 +16,5 @@ class TemplateDictKeys:
     def key_list(self, build_list):
         build_list = self.build_list
         for key, val in self.date_dict.items():
-            build_list.append(f"self.{self.prop_obj}.{key}.text")
+            build_list.append(f"self.{self.prop_obj}.{key}")
         self._key_list = build_list

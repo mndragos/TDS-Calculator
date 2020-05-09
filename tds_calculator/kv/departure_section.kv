@@ -12,7 +12,7 @@
     tzmin: tzmin
     departure_checkbox: departure_checkbox
     departure_dict:{'year':year.text, 'mon':mon.text, 'day': day.text, 'hour': hour.text, 'mins': mins.text, 'tzsign': tzsign.text, 'tzhour': tzhour.text, 'tzmin': tzmin.text}
-    departure_list: ["year", "mon", "day", "hour", "mins", "tzsign", "tzhour", "tzmin"]
+    departure_list: [year, mon, day, hour, mins,tzsign, tzhour, tzmin]
     
     orientation: 'vertical'
     spacing: designer_spacing
@@ -38,6 +38,7 @@
         spacing: designer_spacing
         DesignerCheckBox:
             id: departure_checkbox
+            on_state: root.text_color(); root.text_disable()
         DesignerLabel:
             text: 'DEPARTURE:'
     BoxLayout:

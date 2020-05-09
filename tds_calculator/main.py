@@ -14,15 +14,6 @@ from kivy.properties import ObjectProperty
 
 from tds_calculator.common.buttons_section import Buttons
 
-# class SpeedSection(BoxLayout):
-#     spd = ObjectProperty()
-#     speed_checkbox = ObjectProperty()
-
-
-# class DistanceSection(BoxLayout):
-#     dist = ObjectProperty()
-#     distance_checkbox = ObjectProperty()
-
 
 class TDSCalculator(BoxLayout):
     pass

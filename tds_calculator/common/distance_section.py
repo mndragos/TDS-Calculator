@@ -9,13 +9,14 @@ class DistanceSection(BoxLayout):
     dist = ObjectProperty()
     distance_checkbox = ObjectProperty()
 
-    def distance_string(self, distance: str) -> str:
-        """Uses a template to create the distance from the GUI text input interface.
+    def text_color(self):
+        if self.distance_checkbox.state == "down":
+            self.dist.background_color = (0, 0, 1, 0.5)
+        elif self.distance_checkbox.state == "normal":
+            self.dist.background_color = (1, 1, 1, 1)
 
-        Arguments:
-            dist {str} -- string in the format '0.00'.
-
-        Returns:
-            str -- '0.00'
-        """
-        return "{}".format(distance)
+    def text_disable(self):
+        if self.distance_checkbox.state == "down":
+            self.dist.disabled = True
+        elif self.distance_checkbox.state == "normal":
+            self.dist.disabled = False

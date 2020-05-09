@@ -118,27 +118,17 @@ class Buttons(BoxLayout):
             )
 
     def reset(self):
+        departure_dict = self.dep_section.departure_dict
+        arrival_dict = self.arr_section.arrival_dict
+        departure_list = TemplateDictKeys("dep_section", departure_dict).key_list
+        arrival_list = TemplateDictKeys("arr_section", arrival_dict).key_list
+
         prop_obj = [
-            self.dep_section.year,
-            self.dep_section.mon,
-            self.dep_section.day,
-            self.dep_section.hour,
-            self.dep_section.mins,
-            self.dep_section.tzsign,
-            self.dep_section.tzhour,
-            self.dep_section.tzmin,
-            self.arr_section.year,
-            self.arr_section.mon,
-            self.arr_section.day,
-            self.arr_section.hour,
-            self.arr_section.mins,
-            self.arr_section.tzsign,
-            self.arr_section.tzhour,
-            self.arr_section.tzmin,
-            self.distance.dist,
-            self.speed.spd,
-            self.time_delta_label,
+            arrival_list,
+            departure_list,
+            ["self.distance.dist", "self.speed.spd", "self.time_delta_label"],
         ]
 
-        for items in prop_obj:
-            items.text = ""
+        for i in range(len(prop_obj)):
+            for items in prop_obj[i]:
+                eval(items).text = ""

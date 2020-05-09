@@ -7,17 +7,23 @@ from kivy.properties import ObjectProperty, DictProperty, ListProperty
 
 
 class DepartureSection(BoxLayout):
-    day = ObjectProperty()
-    mon = ObjectProperty()
-    year = ObjectProperty()
-    hour = ObjectProperty()
-    mins = ObjectProperty()
-    tzsign = ObjectProperty()
-    tzhour = ObjectProperty()
-    tzmin = ObjectProperty()
     depature_checkbox = ObjectProperty()
     departure_dict = DictProperty()
     departure_list = ListProperty()
+    items_list = ["self.year", "self.mon", "self.day", "self.hour", "self.mins"]
 
-    def __init__(self, **kwargs):
-        super(DepartureSection, self).__init__(**kwargs)
+    def text_color(self):
+        if self.departure_checkbox.state == "down":
+            for items in self.items_list:
+                eval(items).background_color = (0, 0, 1, 0.5)
+        elif self.departure_checkbox.state == "normal":
+            for items in self.items_list:
+                eval(items).background_color = (1, 1, 1, 1)
+
+    def text_disable(self):
+        if self.departure_checkbox.state == "down":
+            for items in self.items_list:
+                eval(items).disabled = True
+        elif self.departure_checkbox.state == "normal":
+            for items in self.items_list:
+                eval(items).disabled = False
