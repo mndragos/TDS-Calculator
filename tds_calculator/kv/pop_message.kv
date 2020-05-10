@@ -8,6 +8,7 @@
     title_color:(0, 0, 0, 1)
     title: "Error Warning"
     background:"tds_calculator\\img\\grey.png"
+    auto_dismiss:False
     BoxLayout:
         orientation: "vertical"
         Label:
@@ -17,4 +18,10 @@
             valign: "middle"
             color: (0, 0, 0, 1)
             text:
+        Button:
+            font_size: "18sp"
+            text:'CLOSE'
+            pos_hint:{"x": 0.3, "y": 0.2}
+            size_hint: (0.3, 0.3)
+            on_press: root.dismiss()
     
