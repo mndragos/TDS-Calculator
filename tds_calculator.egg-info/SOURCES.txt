@@ -1,7 +1,0 @@
-README.rst
-setup.py
-tds_calculator/__init__.py
-tds_calculator.egg-info/PKG-INFO
-tds_calculator.egg-info/SOURCES.txt
-tds_calculator.egg-info/dependency_links.txt
-tds_calculator.egg-info/top_level.txt
